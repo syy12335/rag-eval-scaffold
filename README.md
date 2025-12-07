@@ -1,4 +1,5 @@
-﻿# qwen-rag-eval-scaffold
+﻿English | [中文说明](README_zh.md)
+# qwen-rag-eval-scaffold
 
 A lightweight evaluation scaffold for Qwen-based RAG workflows. It runs the full pipeline — **Dataset → Vector Store → RAG Workflow → RAGAS Evaluation** — with a single command, and provides an optional Streamlit console for debugging and visualization.  
 Designed as a clean baseline for building and evaluating RAG systems in the Qwen ecosystem.
