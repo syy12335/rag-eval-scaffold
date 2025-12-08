@@ -10,11 +10,36 @@ embedding:
   # dim: 1536
   # batch_size: 32
 
-
 generation:
-  provider: "qwen"              # 使用 application.yaml 中 llm.qwen
-  model_name: "qwen-flash"
-
-  # 与“生成”强相关的参数可以配置在这里，AgentHelper / RagRunner 中按需读取
+  provider: "qwen"                 # 使用 application.yaml 中 llm.qwen
+  model: "qwen-flash"              # 或 "qwen-turbo"，由你自己改
   temperature: 0.2
   max_tokens: 1024
+  parser: "str"                    # 先约定只有 "str" 一种解析方式
+
+  # NormalRag 会按 inputs 中的字段名构造 prompt.fill 的入参
+  generation:
+    provider: "qwen"
+    model_name: "qwen-flash"
+    temperature: 0.2
+    max_tokens: 1024
+    parser: "str"             # 这行在当前实现中暂时不会用到
+    inputs: [ question, contexts, memory_text ]    # 这行在当前实现中也不会做动态处理
+    prompt: |
+      你现在的身份是一名基于检索文档回答问题的问答助手。
+
+      回答规则：
+        1. 回答必须完全基于提供的上下文内容；
+        2. 若上下文未包含答案，请回答“我不知道”；
+        3. 回答需简洁明了，不超过三句话；
+        4. 不得加入任何未在上下文中出现的信息；
+        5. 不要输出解释说明，只输出最终回答。
+
+      【问题】
+      {question}
+
+      【上下文】
+      {contexts}
+
+      【记忆（可为空）】
+      {memory_text}

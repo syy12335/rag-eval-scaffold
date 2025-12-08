@@ -1,6 +1,22 @@
-# config/application.yaml
-# 约定：本文件位于 project-root/config/application.yaml
-#       project-root = config_path.parent.parent
+llm:
+  # 厂商 / 网关级别配置：只管 base_url + api_key_env + default_model_name
+  # 具体角色用哪个 provider / model_name，在 config/model_roles.yaml 中指定
+  qwen:
+    base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    api_key_env: "API_KEY_QWEN"
+    default_model_name: "qwen-plus"
+
+  openai:
+    base_url: "https://api.openai.com/v1"
+    api_key_env: "OPENAI_API_KEY"
+    default_model_name: "gpt-4.1-mini"
+
+  local_sglang:
+    base_url: "http://127.0.0.1:8000/v1"
+    api_key_env: "LOCAL_SGLANG_KEY"
+    default_model_name: "qwen2.5-7b-instruct"
+
+############ 一般下面保留默认配置即可 ############
 
 dataset:
   # 评估样本文件（RAG 输入问答数据），相对于 project-root
@@ -53,22 +69,3 @@ vector_store:
   # VectorDatabaseBuilder 默认使用这个名称创建 / 复用 collection
   collection_name: "cmrc2018_default"
 
-
-llm:
-  # 厂商 / 网关级别配置：只管 base_url + api_key_env + default_model_name
-  # 具体角色用哪个 provider / model_name，在 config/model_roles.yaml 中指定
-
-  qwen:
-    base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
-    api_key_env: "API_KEY_QWEN"
-    default_model_name: "qwen-plus"
-
-  openai:
-    base_url: "https://api.openai.com/v1"
-    api_key_env: "OPENAI_API_KEY"
-    default_model_name: "gpt-4.1-mini"
-
-  local_sglang:
-    base_url: "http://127.0.0.1:8000/v1"
-    api_key_env: "LOCAL_SGLANG_KEY"
-    default_model_name: "qwen2.5-7b-instruct"
