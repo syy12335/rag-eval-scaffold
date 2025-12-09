@@ -61,16 +61,13 @@
    Windows 当前会话示例：
 
    ```bat
-   set API_KEY_QWEN=your-api-key
+   set API_KEY_QWEN=your-api-key # 千问
    ```
-
-   Linux 或 macOS 示例：
-
-   ```bash
-   export API_KEY_QWEN="your-api-key"
+   或
+4. ```bat
+   set OPENAI_API_KEY=your-api-key # OpenAI
    ```
-
-   具体环境变量名与模型配置示例以 `config/application.yaml` 与相关文档为准。
+   （如果需要使用其他模型，请自行配置`config/application.yaml`中的`llm`部分）
 
 ## 4. Quick Start：一条命令跑通
 

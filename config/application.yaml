@@ -1,6 +1,7 @@
 llm:
   # 厂商 / 网关级别配置：只管 base_url + api_key_env + default_model_name
   # 具体角色用哪个 provider / model_name，在 config/model_roles.yaml 中指定
+  # 比方说，要使用openai的api，就要把api_key_env配置为本地环境变量的值，base_url设置为openai的url
   qwen:
     base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
     api_key_env: "API_KEY_QWEN"
