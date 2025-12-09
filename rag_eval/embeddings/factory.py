@@ -104,6 +104,18 @@ def build_embedding_from_config(app_config: YamlConfigReader) -> Embeddings:
             dashscope_api_key=api_key,
         )
 
+        # --------------------------------------------------------
+        # 新增：OpenAI Embedding 支持（strict append, 无任何删改）
+        # --------------------------------------------------------
+    if provider_key == "openai":
+        from langchain_openai import OpenAIEmbeddings
+
+        return OpenAIEmbeddings(
+            model=model_name,
+            api_key=api_key,
+        )
+        # --------------------------------------------------------
+
     raise ValueError(
         f"[embedding_factory] 暂不支持 embedding.provider = {provider_key!r}，"
         "目前仅支持 provider = 'qwen'（DashScopeEmbeddings）。"

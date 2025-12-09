@@ -68,6 +68,7 @@
    set OPENAI_API_KEY=your-api-key # OpenAI
    ```
    （如果需要使用其他模型，请自行配置`config/application.yaml`中的`llm`部分）
+   （目前`embedding`仅支持`Qwen`和`openai`）
 
 ## 4. Quick Start：一条命令跑通
 
