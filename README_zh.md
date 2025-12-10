@@ -53,7 +53,7 @@
    pip install -r requirements.txt
    ```
 
-3. 配置模型与 API Key  
+3. 配置模型与 API Key  （建议使用千问api，其他的模型还没测试，预计一个月内补齐其他模型的测试）
 
    1）在配置文件中选择或声明使用的模型提供方与模型名称（对话模型、embedding 模型等）；  
    2）在系统环境中设置对应的 API Key，例如：
